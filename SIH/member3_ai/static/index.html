@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Legal Metrology AI Inspection</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>LEGAL METROLOGY AI INSPECTION</h1>
+            <p class="subtitle">Packaged Commodity Inspection System</p>
+        </header>
+
+        <!-- Upload Section -->
+        <section id="upload-section" class="section">
+            <h2>Upload Product Images</h2>
+            <p class="instruction">Upload three views of the SAME product</p>
+            
+            <div class="upload-grid">
+                <!-- Front Image Upload -->
+                <div class="upload-card" data-view="front">
+                    <div class="card-header">
+                        <span class="view-icon">□</span>
+                        <span class="view-label">FRONT VIEW</span>
+                    </div>
+                    <div class="drop-zone" id="drop-front">
+                        <input type="file" id="file-front" accept="image/*" hidden>
+                        <div class="drop-content" id="drop-content-front">
+                            <span class="upload-icon">⬆</span>
+                            <p>Click or drag to upload</p>
+                            <span class="file-hint">JPG, PNG, WEBP</span>
+                        </div>
+                        <div class="preview" id="preview-front" hidden>
+                            <img id="img-front" alt="Front preview">
+                            <div class="preview-info">
+                                <span id="filename-front"></span>
+                                <button type="button" class="btn-remove" data-view="front">Remove</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-status" id="status-front"></div>
+                </div>
+
+                <!-- Back Image Upload -->
+                <div class="upload-card" data-view="back">
+                    <div class="card-header">
+                        <span class="view-icon">□</span>
+                        <span class="view-label">BACK VIEW</span>
+                    </div>
+                    <div class="drop-zone" id="drop-back">
+                        <input type="file" id="file-back" accept="image/*" hidden>
+                        <div class="drop-content" id="drop-content-back">
+                            <span class="upload-icon">⬆</span>
+                            <p>Click or drag to upload</p>
+                            <span class="file-hint">JPG, PNG, WEBP</span>
+                        </div>
+                        <div class="preview" id="preview-back" hidden>
+                            <img id="img-back" alt="Back preview">
+                            <div class="preview-info">
+                                <span id="filename-back"></span>
+                                <button type="button" class="btn-remove" data-view="back">Remove</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-status" id="status-back"></div>
+                </div>
+
+                <!-- Side Image Upload -->
+                <div class="upload-card" data-view="side">
+                    <div class="card-header">
+                        <span class="view-icon">□</span>
+                        <span class="view-label">SIDE VIEW</span>
+                    </div>
+                    <div class="drop-zone" id="drop-side">
+                        <input type="file" id="file-side" accept="image/*" hidden>
+                        <div class="drop-content" id="drop-content-side">
+                            <span class="upload-icon">⬆</span>
+                            <p>Click or drag to upload</p>
+                            <span class="file-hint">JPG, PNG, WEBP</span>
+                        </div>
+                        <div class="preview" id="preview-side" hidden>
+                            <img id="img-side" alt="Side preview">
+                            <div class="preview-info">
+                                <span id="filename-side"></span>
+                                <button type="button" class="btn-remove" data-view="side">Remove</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-status" id="status-side"></div>
+                </div>
+            </div>
+
+            <div class="action-bar">
+                <button type="button" id="btn-inspect" class="btn-primary" disabled>
+                    <span class="btn-text">INSPECT PRODUCT</span>
+                    <span class="btn-loading" hidden>PROCESSING...</span>
+                </button>
+            </div>
+        </section>
+
+        <!-- Results Section -->
+        <section id="results-section" class="section" hidden>
+            <div class="results-header">
+                <h2>INSPECTION RESULT</h2>
+                <button type="button" id="btn-new" class="btn-secondary">NEW INSPECTION</button>
+            </div>
+
+            <!-- Category -->
+            <div class="result-card category-card">
+                <h3>PRODUCT CATEGORY</h3>
+                <div class="category-display" id="category-display">
+                    <span class="category-badge" id="category-badge">UNKNOWN</span>
+                </div>
+            </div>
+
+            <!-- Extracted Fields -->
+            <div class="result-card">
+                <h3>EXTRACTED INFORMATION</h3>
+                <div class="fields-grid" id="fields-grid">
+                    <!-- Fields will be inserted here -->
+                </div>
+            </div>
+
+            <!-- Image Quality -->
+            <div class="result-card">
+                <h3>IMAGE QUALITY</h3>
+                <div class="quality-grid" id="quality-grid">
+                    <!-- Quality items will be inserted here -->
+                </div>
+            </div>
+
+            <!-- Evidence Images -->
+            <div class="result-card">
+                <h3>EVIDENCE</h3>
+                <div class="evidence-grid" id="evidence-grid">
+                    <!-- Evidence images will be inserted here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Error Display -->
+        <div id="error-toast" class="toast" hidden></div>
+    </div>
+
+    <script src="/static/app.js"></script>
+</body>
+</html>

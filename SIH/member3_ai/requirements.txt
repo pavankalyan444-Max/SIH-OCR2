@@ -1,0 +1,21 @@
+# Legal Metrology Inspection - AI/CV Module
+# Member 3 - Smart India Hackathon
+
+# Core dependencies
+paddlepaddle==3.3.1
+paddleocr==3.7.0
+
+# Image processing
+opencv-python==4.10.0.84
+numpy<2.4,>=1.24
+
+# API framework
+fastapi==0.141.1
+uvicorn==0.34.0
+python-multipart==0.0.12
+
+# Utilities
+Pillow==12.3.0
+PyYAML==6.0.2
+requests==2.34.2
+tqdm==4.70.0
